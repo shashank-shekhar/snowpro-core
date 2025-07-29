@@ -68,7 +68,7 @@ Here is the properly formatted response in **Markdown**:
 ## SnowCD (Connectivity Diagnostics)
 
 - Run diagnostics:
-  ```sql
+```sql
   SELECT SYSTEM$ALLOWLIST();
   SELECT SYSTEM$ALLOWLIST_PRIVATE_LINK();
 ```
