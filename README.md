@@ -137,6 +137,7 @@ SELECT SYSTEM$ALLOWLIST_PRIVATE_LINK();
 * Scheduled calls to stored procedures
 * Serverless (scheduled/triggered), Managed (concurrent/unpredictable loads)
 * Scheduling via intervals or CRON
+* Can form Task Graphs (`CREATE TASK T2 AFTER T1`)
 
 ## Pipes
 
@@ -211,7 +212,23 @@ SELECT SYSTEM$ALLOWLIST_PRIVATE_LINK();
 
 * Secure views/materialized views shareable
 * Metadata-based sharing (no storage cost, compute-only)
+* Reader accounts available
 
+## Search Optimization
+
+* Maintains search paths
+* Best for non-clustered columns, complex queries
+
+## Best Practices
+
+* Avoid using `ACCOUNTADMIN` for automated scripts
+* Minimum privileges: `USAGE` on DB/schema, `SELECT` on table
+
+## Future Grants
+
+* Grants privileges automatically to future objects
+* Managed Access Schema restricts sharing
+  
 ## Numbers to Remember
 
 | Value     | Description                     |
@@ -225,10 +242,5 @@ SELECT SYSTEM$ALLOWLIST_PRIVATE_LINK();
 | 16 MB     | Default unloading size (`COPY`) |
 | 64 days   | Bulk load metadata retention    |
 | 128 MB    | Max VARIANT value size          |
-
-## Search Optimization
-
-* Maintains search paths
-* Best for non-clustered columns, complex queries
 
 ---
